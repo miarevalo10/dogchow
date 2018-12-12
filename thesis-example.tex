@@ -27,17 +27,15 @@
 \newcommand{\ie}{\textit{i.e.,}\xspace}
 \newcommand{\eg}{\textit{e.g.,}\xspace}
 \newcommand{\etc}{\textit{etc.}\xspace}
-\newcommand{\thesisTitle}{Automated extraction of augmented models for native and hybrid mobile applications in Android}
-\newcommand{\thesisName}{Santiago Li\~{n}\'{a}n Romero}
-\newcommand{\thesisSubject}{Thesis submitted to the Faculty of Engineering in
-	partial fulfillment of the requirements
-	for the degree of MSc. in Software Engineering}
-\newcommand{\thesisDate}{December, 2018}
-\newcommand{\thesisVersion}{Full draft - Prior Advisor review}
+\newcommand{\thesisTitle}{Generación automática de tests para aplicaciones Android basada en multi-modelos}
+\newcommand{\thesisName}{María Isabel Arévalo Robinson}
+\newcommand{\thesisSubject}{Proyecto de grado}
+\newcommand{\thesisDate}{Diciembre, 2018}
+\newcommand{\thesisVersion}{1.0}
 
 \newcommand{\thesisFirstReviewer}{Ph.D. Nicol\'{a}s Cardozo }
 \newcommand{\thesisFirstReviewerUniversity}{\protect{Universidad de los Andes, Bogot\'{a}, Colombia}}
-\newcommand{\thesisFirstReviewerDepartment}{Systems and Computing Engineering Department}
+\newcommand{\thesisFirstReviewerDepartment}{Departamento de Ingeniería de Sistemas y Computación}
 
 \newcommand{\thesisSecondReviewer}{Ph.D. Gabriele Bavota}
 \newcommand{\thesisSecondReviewerUniversity}{\protect{Universit\`{a} della Svizzera italiana (USI), Lugano}}
@@ -46,8 +44,8 @@
 \newcommand{\thesisFirstSupervisor}{Ph.D. Mario Linares V\'{a}squez}
 
 \newcommand{\thesisUniversity}{\protect{Universidad de los Andes}}
-\newcommand{\thesisUniversityDepartment}{Systems and Computing Engineering Department}
-\newcommand{\thesisUniversityInstitute}{Faculty of Engineering}
+\newcommand{\thesisUniversityDepartment}{Departamento de Ingeniería de Sistemas y Computación}
+\newcommand{\thesisUniversityInstitute}{Facultad de Ingeniería}
 \newcommand{\thesisUniversityGroup}{The Software Design Lab}
 \newcommand{\thesisUniversityCity}{Bogot\'{a}, Colombia}
 \newcommand{\thesisUniversityStreetAddress}{Cra 1 \# 18A - 12}
@@ -58,8 +56,9 @@
 % **************************************************
 % Load and Configure Packages
 % **************************************************
+\usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}		% defines file's character encoding
-\usepackage[english]{babel} % babel system, adjust the language of the content
+\usepackage[spanish]{babel} % babel system, adjust the language of the content
 \usepackage[					% clean thesis style
 	figuresep=colon,%
 	sansserif=false,%
@@ -152,6 +151,7 @@
 	\fbox{\bfseries\sffamily\scriptsize#1}
 	{\small$\blacktriangleright$\textit{#2}$\blacktriangleleft$}}
 \newcommand\MARIO[1]{\textcolor{red}{\nb{MARIO}{#1}}}
+\newcommand\SANTIAGO[1]{\textcolor{orange}{\nb{SANTIAGO}{#1}}}
 % **************************************************
 % Document CONTENT
 % **************************************************
@@ -162,8 +162,8 @@
 % --------------------------
 %\renewcaptionname{ngerman}{\figurename}{Abb.}
 %\renewcaptionname{ngerman}{\tablename}{Tab.}
-\renewcaptionname{english}{\figurename}{Fig.}
-\renewcaptionname{english}{\tablename}{Tab.}
+\renewcaptionname{spanish}{\figurename}{Fig.}
+\renewcaptionname{spanish}{\tablename}{Tab.}
 
 % --------------------------
 % Front matter
@@ -194,7 +194,6 @@
 \input{content/chapter-introduction} % INCLUDE: introduction
 \input{content/chapter-related-work} % INCLUDE: related work
 \input{content/chapter-system}	% INCLUDE: system
-\input{content/chapter-concepts} % INCLUDE: concepts
 \input{content/chapter-conclusion} % INCLUDE: conclusion
 \cleardoublepage
 

@@ -1,39 +1,12 @@
 % !TEX root = ../thesis-example.tex
 %
-\chapter{Conclusion}
+\chapter{Conclusiones}
 \label{chapter5}
 
-The results from our empirical study suggest that  automatically extracting augmented models from Android apps enables better understanding of the apps. For modern mobile applications, ripping apps --- but based only on GUI exploration--- is not enough because they are context-aware. To that end, context, GUI, usage and domain models should be extracted and combined together to build more useful and comprehensive augmented models.
+Durante el desarrollo del proyecto se logró la mayoría de los objetivos alcanzados, y se construyó un generador automático de pruebas funcional. A continuación se presentan las conclusiones del proceso y el trabajo futuro.
 
-Still performance of \textbf{RIP} exploring native applications is lower than existing baseline tools' (based only on GUI ripping), however enabling contextual changes in exploration allows \textbf{RIP} to find states that these tools are not able to detect. 
+\section{Objetivos cumplidos}
 
-Our tool bridges the gap of ripping hybrid apps, and it is the first approach that focuses in exploring dynamically these applications. \textbf{RIP} outperforms industry and academy state of the art tools in the exploration of hybrid apps.
+\section{Limitaciones del desarrollo}
 
-\textbf{RIP} is able to detect WEB and HTTP crashes from native hybrid applications based on the WebView Javascript console whereas native based rippers only detect crashes such as \texttt{IOException} or \texttt{OutOfMemoryError}. This combination of web information and native informations gives \textbf{RIP} and advantage over other existing tools.
-
-The future of mobile application development is uncertain, however, in the short and medium term hybrid applications will start growing faster because of the advances in web technologies, the substantial improvement in the performance of today's mobile devices and the cost reductions of building cross-platform applications with a single language, a single UI and a single technology.
-
- To summarize, the objectives of the thesis were accomplished: an approach for improving automated testing of mobile apps has been developed and integrated into a new tool called \textbf{RIP}; a software that extracts multi-models, and performs rip-based crash detection. The performance of this tool has been evaluated and compared, finding its multi-model exploration and ripping capabilities in hybrid apps its main strengths.
-
-\section{Future work}
-
-There is a lot of work to be done regarding tests and experiments, improving our tool and expanding \textbf{RIP} to new horizons in mobile software testing.
-
-\begin{itemize}
-	\item Introduce more applications and tools in the empirical study could gives us a better understanding of the possible improvements to RIP and our augmented-model extraction strategy.
-	
-	\item Further studies will be conducted to evaluate and improve automated exploration of the apps, comparing states discovered by our approach against states discovered by users' interactions.
-	
-	\item Improve the GUI ripping algorithm in \textbf{RIP} for native apps. \textbf{RIP} state discovery strategy based only on the GUI model is below tools like \textit{DroidBot} and \textit{Firebase Test Lab Robo Test}. Improving the ripping strategy in this case, will increment the coverage of states discovered during multi-model ripping.
-	
-	\item Convert \textbf{RIP} into a cloud based service. \textit{Firebase Test Lab Robo Test} showed us the benefits of running automated tests in the cloud, freeing testers from manual tasks, enabling parallel execution, and making it more accessible and easy to use.
-	
-	\item Integrate \textbf{RIP} with Google Chrome Dev Tools, to analyze hybrid applications DOM without restrictions and inspect more information for these applications.
-	
-	\item Analyze accessibility issues in Android applications based on RIP's state discovery approach. Accessibility services could be discovered and tested to make apps more useful and accessible for everyone.
-	
-	\item In this document, we propose to take advantage of the augmented models and implement multi-model-based testing. Augmented models contain much more information than traditional state diagrams of GUIs. All things considered, multi-models have richer information that will enable generation of more effective test suites. The proposed multi-model could be used to generate test cases, first, using the context variables to define the environmental conditions of the test cases; secondly, generating  inputs in test cases by relying on domain entities and attributes; finally, using the GUI and usage information to provide test cases based on developer requirements, such as coverage or specific functionalities. Model based testing strategies could be able to generated rich test suites, containing all the information from the augmented model. 
-	
-\end{itemize}
-
-
+\section{Trabajo futuro}
