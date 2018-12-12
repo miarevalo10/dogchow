@@ -1,0 +1,58 @@
+% !TEX root = ../thesis-example.tex
+%
+\chapter{Introduction} \footnotetext[1]{\textbf{Bibliographical note:} Part of this work has been published as a NIER conference paper in: 2018 IEEE International Conference on Software Maintenance and Evolution (ICSME). Automated Extraction of Augmented Models for Android Apps\cite{rip}}.
+\label{sec:intro}
+
+\cleanchapterquote{The most exciting mobile trend is full Qwerty keyboards. I'm sorry, it really is. I'm not making this up}{Mihal "Mike" Lazaridis on iPhone, May 2008}{(Founder of BlackBerry)}
+
+Modern mobile application testing is becoming more complex than ever before due to fragmentation and context-aware software. The majority of the mobile applications that we use daily (\eg Facebook, Waze, Uber, Web browser) rely on external web-services, connectivity methods (\eg Wi-Fi, Bluetooth, celullar networks) and sensors (\eg GPS, proximity sensor, cameras) that interact together. This amalgam of technologies increases the number of states and contexts to be considered when testing applications. Additionally to the previous examples, there is a growing number of IoT apps that have continuous interactions with their context (\eg health care applications in hospitals \cite{7724501}, tourist attractions \cite{8078373}).
+
+Context-awareness in mobile applications is fundamental to create robust tests. “Since 1991, context-awareness computing has been established as a well known research area in computer science" \cite{6512846}. The definition has evolved from desktop applications to mobile applications. Regarding apps, context includes many more external variables (e.g., device hardware, device connectivity, battery charge, Android version, external sensors inputs, time).
+
+Moreover, devices where mobile applications run are becoming more powerful and capable to capture, process and transmit information of their context. To capture data, the Android Platform supports more than 12 different sensors (\eg accelerometer, gravity, light, magnetic field, pressure, temperature)\cite{androidSensors}. Besides multiple sources of data, there are numerous possibilities concerned to connectivity. An Android phone can interact with another device via Bluetooth, NFC, Wi-Fi P2P, USB, and SIP. \cite{androidConnectivity}
+
+As a consequence of the complexity of an app and its context, testing is a hard labour for developers. Context changes can induce unforeseen faults and errors that traditional black-box or grey-box techniques do not take into account. Let us use a fictional app as an example to illustrate the case: A delivery driver is using an app that indicates her the route to deliver her packages; the battery of her smart-phone is draining fast, then, in order to extend battery life the device turns off background location and network services. The delivery driver thinks that she has finished her tasks because the application stopped showing her directions. However, the app crashed as a consequence of an unforeseen change in the device connectivity, due to battery saving configurations in the device.
+
+In light of the time and effort required to take into account all the possible scenarios and generate the corresponding test cases, automation of testing processes become an essential job during app development, however, the most part of mobile testing is done manually by developers owing to several factors, including that current
+tools do not provide testers with testing capabilities for complex interactions and contextual events \cite{6681334}, \cite{linares-vasquez_bernal-cardenas_moran_poshyvanyk_2017}, \cite{kochhar_thung_nagappan_zimmermann_lo_2015}, \cite{linares-vasquez_moran_poshyvanyk_2017}. 
+
+
+
+
+\section{Thesis goals}
+To main goal with this thesis is to \emph{develop an approach for improving mobile software testing, automating multi-model generation, app exploration and crash detection for native and hybrid apps.} In particular, the specific goals are:
+\begin{itemize}
+	\item Define an approach for improving automated testing of mobile apps, by taking advantage of programmatic extraction of context, usage, domain and GUI models from an Android application.
+	
+	\item Develop a tool that automatically (i) extract multi-models, and (ii) performs rip-based crashes detection.
+	
+	\item Evaluate the performance of the proposed tool (in terms of GUI exploration and crashes detection) when compared to state-of-the-art rippers.
+\end{itemize}
+
+\section{Thesis contributions}
+
+We  propose an approach for improving automated testing, by taking advantage of programmatic extraction of context, usage, domain and GUI models from an Android application. Along with the automated extraction, we propose the conception of a multi-model (or augmented model) that combines the aforementioned models and can be used to support testing related tasks such as test cases generation, execution, and documentation.
+
+%Our approach is based on models, given the fact that they help us to analyze situations by allowing us to isolate key elements and understand their interrelationships. Then we can reason about some aspect of the situation being modeled and draw conclusions about its properties \cite{rozanski_2014}. Complexity of mobile applications reinforce the need to create models that allow developer teams to design maintainable software.
+
+%Although the context model is one of the most significant in a mobile app, it is not the only one. The domain model contains data, entities and their relationships in an application. A domain model creates a web of interconnected objects, where each object represents some meaningful individual \cite{fowler_2015}. Domain model information is useful to determine inputs and outputs in an application. The graphical user interface model (GUI) is also an informative model that represents all the graphic components and views of an application with transitions; it is commonly represented as a state diagram.
+
+Manual creation of those models is time consuming; that is the reason why  extracting models programmatically from static code analysis and dynamic exploration is ideal. Although models by their own are useful artifacts to document the application, we propose the generation of an augmented model mixing key information of different models. The augmented model we propose synthesizes aspects from the graphical user interface, domain and context. This multi-model has new information that only can be obtained by the intersection of the aforementioned individual models. %The more complete the model is, the more robust test suites could be generated.  
+That said, multi-models lay the foundations for future efforts to improve model-based testing in mobile platforms based on richer information contained in augmented models.
+
+Throughout our experiments of automated extraction of models and exploration of Android apps, we found a significant amount of hybrid apps: applications that contain an embedded web browser in which all visual and logic components are contained. These are HTML, JS and CSS web applications that do not make use of the Android UI framework. Because of this singularity, we had to implement a technique to obtain the graphical hierarchy contained in applications of this kind.
+
+%Returning to the previous fictional app example, our proposal would have automatically detected and extracted a multi-model containing the scenarios where location and network services are turned off, anticipating the events that caused the failure.
+
+We validated the extraction of multi-models exploring native open source Android apps. The resulting augmented models contain a significant number of states that were found due to induced contextual changes in the devices. In average, applications contain 6.33 states associated to contextual events. Provided this, we confirmed that each of the models included in the proposal is relevant and have an impact on the behavior of the applications.
+
+Additionally, we conducted an experiment with 20 hybrid applications available in the Google Play Store  and 15 open-source native applications found in F-Droid, and tested our GUI ripping technique. We found that our approach outperforms Google's testing tools such as Firebase Test Lab \cite{firebase} and Android UI/Application Exerciser Monkey \cite{monkey} in hybrid apps exploration. Our technique explores hybrid application with less than 5\% of the states wrongly classified, compared to 44\% of other rippers which are not oriented to hybrid applications exploration. 
+
+Our approach enabled us to find crashes in 40\% of the hybrid applications tested, whereas Firebase Test Lab \cite{firebase} and Monkey \cite{monkey} found bugs in just one of the hybrid applications.
+
+
+
+\section{Thesis Structure}
+\label{sec:intro:structure}
+
+ \hyperref[chapter2]{ \textbf{Chapter 2}} presents related work respecting multi-model testing, frameworks, GUI ripping tools and hybrid applications.  \hyperref[chapter3]{ \textbf{Chapter 3}} describes the proposed approach describing carefully every detail of \textbf{RIP} (our ripper), its technology and implementation. \hyperref[chapter4]{ \textbf{Chapter 4}} introduces an empirical study, based on three research questions answered with the aid of experiments and case studies.  \hyperref[chapter5]{ \textbf{Chapter 5}} concludes the document, revising our contributions and defining future work.
